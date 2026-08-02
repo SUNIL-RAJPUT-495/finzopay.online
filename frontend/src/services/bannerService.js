@@ -2,12 +2,12 @@ import api from "../utils/axios";
 
 // Get all banners
 export const getBanners = () => {
-    return api.get("/admin/banners");
+    return api.get("/system/banners");
 };
 
 // Add banner
 export const addBanner = (data) => {
-    return api.post("/admin/banners", data, {
+    return api.post("/system/banners", data, {
         headers: {
             "Content-Type": "multipart/form-data",
         },
@@ -16,5 +16,5 @@ export const addBanner = (data) => {
 
 // Delete banner
 export const deleteBanner = (id) => {
-    return api.delete(`/admin/banners/${id}`);
+    return api.delete(`/system/banners/${id}`);
 };

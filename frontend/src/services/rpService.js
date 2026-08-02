@@ -6,7 +6,7 @@ import api from "../utils/axios";
  * POST /api/v1/admin/rpplan/add
  */
 export const addRPPlan = (data) => {
-    return api.post("/admin/rpplan/add", data);
+    return api.post("/system/rpplan/add", data);
 };
 
 /**
@@ -14,7 +14,7 @@ export const addRPPlan = (data) => {
  * GET /api/v1/admin/rpplan/list
  */
 export const getRPPlans = () => {
-    return api.get("/admin/rpplan/list");
+    return api.get("/system/rpplan/list");
 };
 
 /**
@@ -22,7 +22,7 @@ export const getRPPlans = () => {
  * PUT /api/v1/admin/rpplan/update/:id
  */
 export const updateRPPlan = (id, data) => {
-    return api.put(`/admin/rpplan/update/${id}`, data);
+    return api.put(`/system/rpplan/update/${id}`, data);
 };
 
 
@@ -35,7 +35,7 @@ export const updateRPPlan = (id, data) => {
  * GET /api/v1/admin/buy-requests?status=pending/approved/rejected
  */
 export const getBuyRequests = (status) => {
-    return api.get(`/admin/rpplan/buyed/list?status=${status}`);
+    return api.get(`/system/rpplan/buyed/list?status=${status}`);
 };
 
 
@@ -44,7 +44,7 @@ export const getBuyRequests = (status) => {
  * POST /api/v1/admin/buyrp/approve/:id
  */
 export const approveBuyRequest = (id) => {
-    return api.post(`/admin/rpplan/buyed/verify/${id}`, { status: "success" });
+    return api.post(`/system/rpplan/buyed/verify/${id}`, { status: "success" });
 };
 
 
@@ -54,7 +54,7 @@ export const approveBuyRequest = (id) => {
  */
 export const rejectBuyRequest = (id, data = {}) => {
     // optional: { admin_note: "reason" }
-    return api.post(`/admin/rpplan/buyed/verify/${id}`, { status: "failed" });
+    return api.post(`/system/rpplan/buyed/verify/${id}`, { status: "failed" });
 };
 
 
@@ -69,7 +69,7 @@ export const rejectBuyRequest = (id, data = {}) => {
  * GET /api/v1/admin/sellrp/pending
  */
 export const getPendingSellRequests = () => {
-    return api.get("/admin/sellrp/pending");
+    return api.get("/system/sellrp/pending");
 };
 
 /**
@@ -77,7 +77,7 @@ export const getPendingSellRequests = () => {
  * POST /api/v1/admin/sellrp/paid/:id
  */
 export const markSellAsPaid = (id) => {
-    return api.post(`/admin/sellrp/paid/${id}`);
+    return api.post(`/system/sellrp/paid/${id}`);
 };
 
 /**
@@ -86,5 +86,5 @@ export const markSellAsPaid = (id) => {
  */
 export const rejectSellRequest = (id, data = {}) => {
     // data optional: { admin_note: "reason" }
-    return api.post(`/admin/sellrp/reject/${id}`, data);
+    return api.post(`/system/sellrp/reject/${id}`, data);
 };

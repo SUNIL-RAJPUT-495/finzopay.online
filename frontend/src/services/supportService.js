@@ -7,7 +7,7 @@ import api from "../utils/axios";
  * GET /api/v1/admin/support
  */
 export const getAllSupport = () => {
-    return api.get("/admin/support");
+    return api.get("/system/support");
 };
 
 /**
@@ -18,7 +18,7 @@ export const getAllSupport = () => {
  * body: { status: "Pending" | "In Progress" | "Resolved" }
  */
 export const updateSupportStatus = (id, status) => {
-    return api.put(`/admin/support/${id}/status`, {
+    return api.put(`/system/support/${id}/status`, {
         status,
     });
 };
@@ -30,5 +30,5 @@ export const updateSupportStatus = (id, status) => {
  * DELETE /api/v1/admin/support/:id
  */
 export const deleteSupport = (id) => {
-    return api.delete(`/admin/support/${id}`);
+    return api.delete(`/system/support/${id}`);
 };
