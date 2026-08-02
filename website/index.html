@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinzoPay - Smart Digital Payments</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Custom Theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: "#3BB5F2",       // light blue (base color)
+                        brandDark: "#1E88C9",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Smooth Scroll -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <!-- ================= NAVBAR START ================= -->
+    <header class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-2">
+                <div class="w-9 h-9 rounded-lg bg-brand flex items-center justify-center text-white font-bold">
+                    F
+                </div>
+                <span class="text-xl font-bold text-gray-900">
+                    Finzo<span class="text-brand">Pay</span>
+                </span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex items-center gap-8 font-medium">
+                <li><a href="#home" class="hover:text-brand transition nav-link">Home</a></li>
+                <li><a href="#features" class="hover:text-brand transition nav-link">Features</a></li>
+                <li><a href="#how-it-works" class="hover:text-brand transition nav-link">How It Works</a></li>
+                <li><a href="#download" class="hover:text-brand transition nav-link">Download</a></li>
+            </ul>
+
+            <!-- CTA Button -->
+            <a href="finzopay.apk" download="finzopay.apk"
+                class="hidden md:inline-block bg-brand hover:bg-brandDark text-white px-6 py-2 rounded-full transition shadow-md">
+                Get App
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="menuBtn" class="md:hidden text-2xl">
+                ☰
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <ul class="flex flex-col p-6 gap-4 font-medium">
+                <li><a href="#home" class="hover:text-brand">Home</a></li>
+                <li><a href="#features" class="hover:text-brand">Features</a></li>
+                <li><a href="#how-it-works" class="hover:text-brand">How It Works</a></li>
+                <li><a href="#download" class="hover:text-brand">Download</a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- ================= NAVBAR END ================= -->
+
+    <!-- ================= HERO SECTION START ================= -->
+    <section id="home" class="relative pt-32 pb-20 bg-gradient-to-br from-blue-50 to-white overflow-hidden">
+        <!-- Background Decorative Blur -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-40 -right-24 w-96 h-96 bg-brand/10 rounded-full blur-3xl"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+            <!-- LEFT CONTENT -->
+            <div class="space-y-6">
+                <span class="inline-block px-4 py-1 rounded-full bg-brand/10 text-brand font-medium text-sm">
+                    Smart • Secure • Fast
+                </span>
+
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-gray-900">
+                    Simplify Your <br />
+                    <span class="text-brand">Digital Payments</span> <br />
+                    With FinzoPay
+                </h1>
+
+                <p class="text-gray-600 max-w-lg">
+                    FinzoPay helps you manage transactions, commissions, and payments
+                    seamlessly with a fast, secure, and user-friendly mobile experience.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="finzopay.apk" download="finzopay.apk"
+                        class="bg-brand hover:bg-brandDark text-white px-8 py-3 rounded-full shadow-lg transition transform hover:-translate-y-1 flex items-center gap-3">
+                        <i class="fa-brands fa-android text-xl"></i>
+                        <span>Download Android App</span>
+                    </a>
+
+                    <a href="#features"
+                        class="px-8 py-3 rounded-full border border-brand text-brand hover:bg-brand/10 transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <!-- RIGHT MOCKUP -->
+            <!-- <div class="flex justify-center md:justify-end">
+                <div
+                    class="relative w-72 h-[460px] rounded-3xl bg-white/70 backdrop-blur-xl shadow-2xl border border-white p-4 animate-float">
+
+                    <div class="h-10 rounded-xl bg-brand flex items-center justify-center text-white font-semibold">
+                        FinzoPay
+                    </div>
+
+                    <div class="mt-4 space-y-4">
+                        <div class="h-16 rounded-xl bg-blue-100"></div>
+                        <div class="h-16 rounded-xl bg-blue-100"></div>
+                        <div class="h-24 rounded-xl bg-blue-200"></div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="flex justify-center">
+                <div class="w-64 rounded-3xl bg-white shadow-xl p-4">
+                    <!-- Replace src with your screenshot -->
+                    <img src="assets/register.jpeg" alt="FinzoPay Login Screen" class="rounded-2xl" />
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ================= HERO SECTION END ================= -->
+
+    <!-- ================= FEATURES SECTION START ================= -->
+    <section id="features" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- Heading -->
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 rounded-full bg-brand/10 text-brand font-medium text-sm">
+                    Why FinzoPay
+                </span>
+
+                <h2 class="mt-4 text-4xl font-bold text-gray-900">
+                    Powerful Features for <br />
+                    <span class="text-brand">Smart Payments</span>
+                </h2>
+
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                    FinzoPay is designed to make digital transactions faster, safer,
+                    and easier for everyone.
+                </p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+                <!-- Feature Card -->
+                <div class="group bg-blue-50 rounded-2xl p-8 transition hover:-translate-y-2 hover:shadow-xl">
+                    <div
+                        class="w-14 h-14 rounded-xl bg-brand flex items-center justify-center text-white text-2xl mb-6">
+                        ⚡
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                        Fast Transactions
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        Experience lightning-fast payment processing with zero hassle.
+                    </p>
+                </div>
+
+                <!-- Feature Card -->
+                <div class="group bg-blue-50 rounded-2xl p-8 transition hover:-translate-y-2 hover:shadow-xl">
+                    <div
+                        class="w-14 h-14 rounded-xl bg-brand flex items-center justify-center text-white text-2xl mb-6">
+                        🔒
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                        Secure & Reliable
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        Your data and payments are protected with advanced security.
+                    </p>
+                </div>
+
+                <!-- Feature Card -->
+                <div class="group bg-blue-50 rounded-2xl p-8 transition hover:-translate-y-2 hover:shadow-xl">
+                    <div
+                        class="w-14 h-14 rounded-xl bg-brand flex items-center justify-center text-white text-2xl mb-6">
+                        📊
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                        Commission Tracking
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        Track earnings and commissions in real time with clarity.
+                    </p>
+                </div>
+
+                <!-- Feature Card -->
+                <div class="group bg-blue-50 rounded-2xl p-8 transition hover:-translate-y-2 hover:shadow-xl">
+                    <div
+                        class="w-14 h-14 rounded-xl bg-brand flex items-center justify-center text-white text-2xl mb-6">
+                        📱
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                        Easy to Use
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        Simple, intuitive interface designed for smooth user experience.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ================= FEATURES SECTION END ================= -->
+
+    <!-- ================= HOW IT WORKS SECTION START ================= -->
+    <section id="how-it-works" class="py-24 bg-gradient-to-b from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- Heading -->
+            <div class="text-center mb-20">
+                <span class="inline-block px-4 py-1 rounded-full bg-brand/10 text-brand font-medium text-sm">
+                    How It Works
+                </span>
+
+                <h2 class="mt-4 text-4xl font-bold text-gray-900">
+                    Simple Steps to Use <br />
+                    <span class="text-brand">FinzoPay</span>
+                </h2>
+
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                    Get started with FinzoPay in just a few easy steps and manage all
+                    your transactions effortlessly.
+                </p>
+            </div>
+
+            <!-- STEP 1 -->
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <div>
+                    <span class="text-brand font-bold text-lg">Step 01</span>
+                    <h3 class="mt-2 text-2xl font-semibold text-gray-900">
+                        Download & Register
+                    </h3>
+                    <p class="mt-4 text-gray-600">
+                        Download the FinzoPay Android app and register using your mobile
+                        number to get started instantly.
+                    </p>
+                </div>
+
+                <div class="flex justify-center">
+                    <div class="w-64 rounded-3xl bg-white shadow-xl p-4">
+                        <!-- Replace src with your screenshot -->
+                        <img src="assets/register.jpeg" alt="FinzoPay Login Screen" class="rounded-2xl" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20 md:flex-row-reverse">
+                <div class="md:order-2">
+                    <span class="text-brand font-bold text-lg">Step 02</span>
+                    <h3 class="mt-2 text-2xl font-semibold text-gray-900">
+                        Access Dashboard
+                    </h3>
+                    <p class="mt-4 text-gray-600">
+                        View total balance, available funds, and today’s commission all
+                        in one clean dashboard.
+                    </p>
+                </div>
+
+                <div class="flex justify-center md:order-1">
+                    <div class="w-64 rounded-3xl bg-white shadow-xl p-4">
+                        <img src="assets/home.jpeg" alt="FinzoPay Dashboard" class="rounded-2xl" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <div>
+                    <span class="text-brand font-bold text-lg">Step 03</span>
+                    <h3 class="mt-2 text-2xl font-semibold text-gray-900">
+                        Make Transactions
+                    </h3>
+                    <p class="mt-4 text-gray-600">
+                        Perform fast and secure transactions directly from the app with
+                        complete transparency.
+                    </p>
+                </div>
+
+                <div class="flex justify-center">
+                    <div class="w-64 rounded-3xl bg-white shadow-xl p-4">
+                        <img src="assets/sellRP.jpeg" alt="FinzoPay Transactions" class="rounded-2xl" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 4 -->
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="md:order-2">
+                    <span class="text-brand font-bold text-lg">Step 04</span>
+                    <h3 class="mt-2 text-2xl font-semibold text-gray-900">
+                        Track Earnings
+                    </h3>
+                    <p class="mt-4 text-gray-600">
+                        Monitor commissions and earnings in real time with detailed
+                        insights.
+                    </p>
+                </div>
+
+                <div class="flex justify-center md:order-1">
+                    <div class="w-64 rounded-3xl bg-white shadow-xl p-4">
+                        <img src="assets/home.jpeg" alt="FinzoPay Commission Screen" class="rounded-2xl" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ================= HOW IT WORKS SECTION END ================= -->
+
+    <!-- ================= DOWNLOAD APP SECTION START ================= -->
+    <section id="download" class="py-24 bg-gradient-to-br from-brand to-brandDark text-white relative overflow-hidden">
+        <!-- Decorative Blur -->
+        <div class="absolute -top-20 -left-20 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 -right-20 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+            <!-- LEFT CONTENT -->
+            <div>
+                <span class="inline-block px-4 py-1 rounded-full bg-white/20 text-white text-sm font-medium">
+                    Get Started Today
+                </span>
+
+                <h2 class="mt-4 text-4xl font-extrabold leading-tight">
+                    Download the <br />
+                    <span class="text-white">FinzoPay Android App</span>
+                </h2>
+
+                <p class="mt-4 text-white/80 max-w-lg">
+                    Manage payments, track commissions, and grow your business
+                    effortlessly with FinzoPay.
+                </p>
+
+                <!-- Buttons -->
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <!-- APK Download -->
+                    <a href="finzopay.apk" download="finzopay.apk"
+                        class="flex items-center gap-3 bg-white text-brand px-6 py-3 rounded-xl font-semibold shadow-lg transition hover:scale-105">
+                        <i class="fa-solid fa-download text-lg"></i>
+                        <span>Download APK</span>
+                    </a>
+
+                    <!-- Play Store -->
+                    <!-- <a href="#"
+                        class="flex items-center gap-3 border border-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-brand transition">
+                        ▶️ Play Store
+                    </a> -->
+                </div>
+
+                <!-- Trust Line -->
+                <p class="mt-6 text-sm text-white">
+                    ✔ Secure payments • ✔ Fast onboarding • ✔ Trusted platform
+                </p>
+            </div>
+
+            <!-- RIGHT MOCKUP -->
+            <div class="flex justify-center md:justify-end">
+                <div
+                    class="relative w-fit h-[480px] rounded-3xl bg-white/90 backdrop-blur-xl shadow-2xl p-4 animate-float">
+                    <img src="assets/splash.jpeg" alt="FinzoPay App Preview" class="rounded-2xl h-full object-cover" />
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ================= DOWNLOAD APP SECTION END ================= -->
+
+    <!-- ================= FOOTER START ================= -->
+    <footer class="bg-gray-950 text-gray-300 pt-20">
+        <div class="max-w-7xl mx-auto px-6 grid gap-12 md:grid-cols-4">
+
+            <!-- Brand -->
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-brand flex items-center justify-center text-white font-bold">
+                        F
+                    </div>
+                    <span class="text-2xl font-bold text-white">
+                        Finzo<span class="text-brand">Pay</span>
+                    </span>
+                </div>
+
+                <p class="text-sm text-gray-400">
+                    FinzoPay is a smart digital payment platform designed to simplify
+                    transactions and commission management securely.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#home" class="hover:text-brand">Home</a></li>
+                    <li><a href="#features" class="hover:text-brand">Features</a></li>
+                    <li><a href="#how-it-works" class="hover:text-brand">How It Works</a></li>
+                    <li><a href="#download" class="hover:text-brand">Download App</a></li>
+                </ul>
+            </div>
+
+            <!-- App Download -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Get the App</h4>
+                <div class="space-y-3">
+                    <a href="assets/finzopay.apk" download
+                        class="block bg-brand text-white text-center py-2 rounded-lg hover:bg-brandDark transition">
+                        Download APK
+                    </a>
+                    <!-- <a href="#"
+                        class="block border border-brand text-brand text-center py-2 rounded-lg hover:bg-brand/10 transition">
+                        Play Store (Coming Soon)
+                    </a> -->
+                </div>
+            </div>
+
+            <!-- Trust -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Why FinzoPay?</h4>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li>✔ Secure Payments</li>
+                    <li>✔ Fast Transactions</li>
+                    <li>✔ Real-Time Commission</li>
+                    <li>✔ User-Friendly App</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="mt-16 border-t border-gray-800">
+            <div
+                class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
+                <p>© 2026 FinzoPay. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">
+                    Designed for secure digital payments
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- ================= FOOTER END ================= -->
+
+
+
+
+    <!-- Dummy section for testing scroll -->
+    <!-- <section id="home" class="pt-32 h-screen bg-blue-50 flex items-center justify-center">
+        <h1 class="text-4xl font-bold text-brand">FinzoPay Landing Page</h1>
+    </section> -->
+
+
+
+
+    <!-- JS -->
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+    </script>
+
+    <script>
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove("text-brand", "font-semibold");
+                if (link.getAttribute("href") === `#${current}`) {
+                    link.classList.add("text-brand", "font-semibold");
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
