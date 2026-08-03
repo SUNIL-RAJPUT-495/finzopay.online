@@ -1,5 +1,5 @@
 import express from 'express';
-import { loginUser, getUserProfile, verifyLoginOtp, sendRegisterOtp, verifyRegisterOtp, sendResetPasswordOtp, resetPassword, changePassword } from '../../controllers/mobile/authController.js';
+import { registerUser, loginUser, getUserProfile, verifyLoginOtp, sendRegisterOtp, verifyRegisterOtp, sendResetPasswordOtp, resetPassword, changePassword } from '../../controllers/mobile/authController.js';
 import { mobileAuth } from '../../middleware/mobileAuthMiddleware.js';
 import { createBuyRPRequest, getAllRPPlans, getBuyRPHistory, getRPPlans } from '../../controllers/mobile/buyRPController.js';
 import { createSellRequest, getSellPageData, getSellRPHistory } from '../../controllers/mobile/sellRPController.js';
@@ -15,9 +15,9 @@ import { getUpiDetails } from '../../controllers/mobile/upiController.js';
 const router = express.Router();
 
 // auth
-// router.post('/auth/register', registerUser);
-router.post('/auth/register/send-otp', sendRegisterOtp);
-router.post('/auth/register/verify-otp', verifyRegisterOtp);
+router.post('/auth/register', registerUser);
+// router.post('/auth/register/send-otp', sendRegisterOtp);
+// router.post('/auth/register/verify-otp', verifyRegisterOtp);
 
 router.post('/auth/login', loginUser);
 router.post('/auth/login-otp', verifyLoginOtp);
@@ -58,10 +58,10 @@ router.get("/rp/sell/history", mobileAuth, getSellRPHistory);
 
 
 // Payment gateway
-router.post("/create/payment", mobileAuth, createPayment);
-router.post("/verify/payment", mobileAuth, verifyPayment);
-router.get("/payment/status/:orderId", mobileAuth, getPaymentStatus);
-router.post("/webhook", upiGatewayWebhook);
+// router.post("/create/payment", mobileAuth, createPayment);
+// router.post("/verify/payment", mobileAuth, verifyPayment);
+// router.get("/payment/status/:orderId", mobileAuth, getPaymentStatus);
+// router.post("/webhook", upiGatewayWebhook);
 
 
 // Support

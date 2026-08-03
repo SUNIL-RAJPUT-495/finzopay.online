@@ -188,20 +188,38 @@ export const getBuyRPHistory = async (req, res) => {
             .populate("planId", "rp_amount commission_percent")
             .sort({ createdAt: -1 });
 
-        const formatted = history.map(txn => ({
-            id: txn._id,
-            payment_id: txn.payment_id,
-            payment_amount: txn.amount_paid,
-            status: txn.status === "success" ? "received" : txn.status,
+        const formatted = history.map(txn => {
+            const base_rp = txn.rp_bought !== undefined && txn.rp_bought !== null
+                ? txn.rp_bought
+                : (txn.planId ? txn.planId.rp_amount : 0);
 
-            rp_received: {
-                base_rp: txn.rp_bought,          // 100
-                commission_rp: txn.commission_rp, // 5
-                total_rp: txn.total_rp_credit     // 105
-            },
+            const commission_percent = txn.commission_percent !== undefined && txn.commission_percent !== null
+                ? txn.commission_percent
+                : (txn.planId ? txn.planId.commission_percent : 0);
 
-            createdAt: txn.createdAt
-        }));
+            const commission_rp = txn.commission_rp !== undefined && txn.commission_rp !== null
+                ? txn.commission_rp
+                : Math.trunc((base_rp * commission_percent) / 100);
+
+            const total_rp = txn.total_rp_credit !== undefined && txn.total_rp_credit !== null
+                ? txn.total_rp_credit
+                : (base_rp + commission_rp);
+
+            return {
+                id: txn._id,
+                payment_id: txn.payment_id,
+                payment_amount: txn.amount_paid,
+                status: txn.status === "success" ? "received" : txn.status,
+
+                rp_received: {
+                    base_rp,
+                    commission_rp,
+                    total_rp
+                },
+
+                createdAt: txn.createdAt
+            };
+        });
 
         res.json({
             success: true,

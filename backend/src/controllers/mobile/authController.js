@@ -442,87 +442,87 @@ export const changePassword = async (req, res) => {
 
 
 
-// export const registerUser = async (req, res) => {
-//     try {
-//         const { email, phone, password, inviteCode } = req.body;
+export const registerUser = async (req, res) => {
+    try {
+        const { email, phone, password, inviteCode } = req.body;
 
-//         // âœ… Required field validation
-//         if (!phone || !password || !inviteCode) {
-//             return res.status(400).json({
-//                 success: false,
-//                 message: "Phone number, password and invite code are required",
-//             });
-//         }
+        // âœ… Required field validation
+        if (!phone || !password || !inviteCode) {
+            return res.status(400).json({
+                success: false,
+                message: "Phone number, password and invite code are required",
+            });
+        }
 
-//         // âœ… Check existing user by phone
-//         const userExists = await User.findOne({ phone });
-//         if (userExists) {
-//             return res.status(409).json({
-//                 success: false,
-//                 message: "User already exists with this phone number",
-//             });
-//         }
+        // âœ… Check existing user by phone
+        const userExists = await User.findOne({ phone });
+        if (userExists) {
+            return res.status(409).json({
+                success: false,
+                message: "User already exists with this phone number",
+            });
+        }
 
-//         // ðŸ”¥ Validate referral
-//         const referral = await referralModel.findOne({ code: inviteCode.toUpperCase() });
+        // ðŸ”¥ Validate referral
+        const referral = await referralModel.findOne({ code: inviteCode.toUpperCase() });
 
-//         if (!referral) {
-//             return res.status(400).json({
-//                 success: false,
-//                 message: "Invalid referral code",
-//             });
-//         }
+        if (!referral) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid referral code",
+            });
+        }
 
-//         if (referral.status !== "ACTIVE") {
-//             return res.status(400).json({
-//                 success: false,
-//                 message: "Referral disabled",
-//             });
-//         }
+        if (referral.status !== "ACTIVE") {
+            return res.status(400).json({
+                success: false,
+                message: "Referral disabled",
+            });
+        }
 
-//         const now = new Date();
+        const now = new Date();
 
-//         if (now < referral.validFrom || now > referral.validTill) {
-//             return res.status(400).json({
-//                 success: false,
-//                 message: "Referral expired",
-//             });
-//         }
+        if (now < referral.validFrom || now > referral.validTill) {
+            return res.status(400).json({
+                success: false,
+                message: "Referral expired",
+            });
+        }
 
-//         if (referral.usedCount >= referral.usageLimit) {
-//             return res.status(400).json({
-//                 success: false,
-//                 message: "Referral limit reached",
-//             });
-//         }
+        if (referral.usedCount >= referral.usageLimit) {
+            return res.status(400).json({
+                success: false,
+                message: "Referral limit reached",
+            });
+        }
 
-//         // âœ… Create user (email optional)
-//         const user = await User.create({
-//             email: email || null,
-//             phone,
-//             password,
-//             inviteCode,
-//         });
+        // âœ… Create user (email optional)
+        const user = await User.create({
+            email: email || null,
+            phone,
+            password,
+            inviteCode,
+        });
 
-//         return res.status(201).json({
-//             success: true,
-//             message: "User registered successfully",
-//             data: {
-//                 id: user._id,
-//                 email: user.email,
-//                 role: user.role,
-//                 token: generateMobileToken(user._id),
-//             },
-//         });
-//     } catch (error) {
-//         console.error("Register Error:", error);
+        return res.status(201).json({
+            success: true,
+            message: "User registered successfully",
+            data: {
+                id: user._id,
+                email: user.email,
+                role: user.role,
+                token: generateMobileToken(user._id),
+            },
+        });
+    } catch (error) {
+        console.error("Register Error:", error);
 
-//         return res.status(500).json({
-//             success: false,
-//             message: "Server error",
-//         });
-//     }
-// };
+        return res.status(500).json({
+            success: false,
+            message: "Server error",
+        });
+    }
+};
 
 
 
