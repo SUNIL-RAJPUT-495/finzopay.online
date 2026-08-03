@@ -9,3 +9,5 @@ export const getSocialLinks = () => {
 export const updateSocialLinks = (data) => {
     return api.post("/system/social-links", data);
 };
+
+

@@ -9,6 +9,8 @@ export const addRPPlan = (data) => {
     return api.post("/system/rpplan/add", data);
 };
 
+
+
 /**
  * GET ALL RP PLANS (ADMIN)
  * GET /api/v1/admin/rpplan/list
@@ -26,9 +28,12 @@ export const updateRPPlan = (id, data) => {
 };
 
 
+
 /* =========================
    BUY RP (ADMIN)
 ========================= */
+
+
 
 /**
  * GET BUY REQUESTS (BY STATUS)
@@ -39,6 +44,7 @@ export const getBuyRequests = (status) => {
 };
 
 
+
 /**
  * APPROVE BUY REQUEST
  * POST /api/v1/admin/buyrp/approve/:id
@@ -46,6 +52,7 @@ export const getBuyRequests = (status) => {
 export const approveBuyRequest = (id) => {
     return api.post(`/system/rpplan/buyed/verify/${id}`, { status: "success" });
 };
+
 
 
 /**
@@ -72,6 +79,8 @@ export const getPendingSellRequests = () => {
     return api.get("/system/sellrp/pending");
 };
 
+
+
 /**
  * MARK SELL REQUEST AS PAID
  * POST /api/v1/admin/sellrp/paid/:id
@@ -79,6 +88,7 @@ export const getPendingSellRequests = () => {
 export const markSellAsPaid = (id) => {
     return api.post(`/system/sellrp/paid/${id}`);
 };
+
 
 /**
  * REJECT SELL REQUEST
