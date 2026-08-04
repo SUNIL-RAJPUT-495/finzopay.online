@@ -16,8 +16,8 @@ const router = express.Router();
 
 // auth
 router.post('/auth/register', registerUser);
-// router.post('/auth/register/send-otp', sendRegisterOtp);
-// router.post('/auth/register/verify-otp', verifyRegisterOtp);
+router.post('/auth/register/send-otp', sendRegisterOtp);
+router.post('/auth/register/verify-otp', verifyRegisterOtp);
 
 router.post('/auth/login', loginUser);
 router.post('/auth/login-otp', verifyLoginOtp);
